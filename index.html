@@ -178,6 +178,23 @@
   .btnArea.opening .shine{ animation:none; }
   .flapTop,.letter,.shine{ opacity:0; }
 }
+    /* ===== Mobile tweaks (carta) ===== */
+@media (max-width: 480px){
+  .sealText{
+    left: 50%;
+    top: 38%;
+    font-size: clamp(30px, 10vw, 52px);
+    letter-spacing: .3px;
+    text-shadow:
+      0 2px 0 rgba(255,255,255,.10),
+      0 10px 18px rgba(0,0,0,.35);
+  }
+
+  /* Evita que se “corte” en pantallas muy altas (iPhone) */
+  .envelopeImg{
+    object-position: 50% 45%;
+  }
+}
   </style>
 </head>
 
