@@ -674,8 +674,50 @@ les compartimos los datos de nuestra cuenta bancaria:
     // Fotos
     loadPhotos();
   </script>
-  <audio id="bgMusic" preload="auto" loop>
+  
+<audio id="bgMusic" preload="auto" loop>
   <source src="audio/cancion.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+(function(){
+  const audio = document.getElementById("bgMusic");
+  audio.volume = 0.65;
+
+  // Botón fijo
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.style.cssText = `
+    position:fixed; right:14px; bottom:14px; z-index:9999;
+    border-radius:999px; padding:10px 14px;
+    border:1px solid rgba(27,22,48,.12);
+    background:rgba(255,255,255,.78); backdrop-filter:blur(8px);
+    font-weight:900; cursor:pointer;
+  `;
+  document.body.appendChild(btn);
+
+  function setLabel(){ btn.textContent = audio.paused ? "Música: OFF" : "Música: ON"; }
+
+  async function tryPlay(){
+    try{ await audio.play(); }
+    catch(e){ console.warn("Bloqueado, toca el botón:", e); }
+    setLabel();
+  }
+
+  btn.addEventListener("click", async () => {
+    if (audio.paused) await tryPlay();
+    else { audio.pause(); setLabel(); }
+  });
+
+  // Autoplay solo si venimos “autorizados”
+  if (localStorage.getItem("musicAllowed") === "1"){
+    // limpia el flag para no forzar siempre
+    localStorage.removeItem("musicAllowed");
+    tryPlay();
+  } else {
+    setLabel();
+  }
+})();
+</script>
 </body>
 </html>
