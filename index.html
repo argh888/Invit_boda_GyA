@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!</title>
+ <title>Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!</title>
 
-  <meta name="description" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
+<meta name="description" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
 
-  <!-- Open Graph (WhatsApp/Facebook) -->
-  <meta property="og:title" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
-  <meta property="og:description" content="Abre la invitación para ver todos los detalles." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://argh888.github.io/Invit_boda_GyA/assets/sobre.jpg" />
-  <meta property="og:url" content="https://argh888.github.io/Invit_boda_GyA/" />
+<!-- Open Graph (WhatsApp/Facebook) -->
+<meta property="og:title" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
+<meta property="og:description" content="Abre la invitación para ver todos los detalles." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://argh888.github.io/Invit_boda_GyA/assets/sobre.jpg" />
+<meta property="og:url" content="https://argh888.github.io/Invit_boda_GyA/" />
 
-  <!-- Twitter/X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
-  <meta name="twitter:description" content="Abre la invitación para ver todos los detalles." />
-  <meta name="twitter:image" content="https://argh888.github.io/Invit_boda_GyA/assets/sobre.jpg" />
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
+<meta name="twitter:description" content="Abre la invitación para ver todos los detalles." />
+<meta name="twitter:image" content="https://argh888.github.io/Invit_boda_GyA/assets/sobre.jpg" />
 
   <style>
     :root{
@@ -103,158 +103,131 @@
       outline: 4px solid rgba(124,92,255,.35);
       outline-offset: 6px;
     }
-
     /* ===== Animación abrir sobre (overlay) ===== */
-    .openFx{
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      perspective: 1200px;
-    }
+.openFx{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  perspective: 1200px;
+}
 
-    .flapTop{
-      position:absolute;
-      left:8%;
-      right:8%;
-      top:8%;
-      height:48%;
-      transform-origin: 50% 0%;
-      transform: rotateX(0deg);
-      clip-path: polygon(0 0, 100% 0, 50% 72%);
-      background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(0,0,0,.10));
-      filter: drop-shadow(0 14px 18px rgba(0,0,0,.18));
-      opacity:0;
-    }
+/* Solapa superior */
+.flapTop{
+  position:absolute;
+  left:8%;
+  right:8%;
+  top:8%;
+  height:48%;
+  transform-origin: 50% 0%;
+  transform: rotateX(0deg);
+  clip-path: polygon(0 0, 100% 0, 50% 72%);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.22), rgba(0,0,0,.10));
+  filter: drop-shadow(0 14px 18px rgba(0,0,0,.18));
+  opacity:0; /* aparece al abrir */
+}
 
-    .letter{
-      position:absolute;
-      left:10%;
-      right:10%;
-      bottom:10%;
-      height:64%;
-      border-radius:14px;
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(247,242,255,.88));
-      box-shadow: 0 20px 40px rgba(0,0,0,.18);
-      transform: translateY(34%);
-      opacity:0;
-    }
+/* Carta que sale */
+.letter{
+  position:absolute;
+  left:10%;
+  right:10%;
+  bottom:10%;
+  height:64%;
+  border-radius:14px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.92), rgba(247,242,255,.88));
+  box-shadow: 0 20px 40px rgba(0,0,0,.18);
+  transform: translateY(34%);
+  opacity:0; /* aparece al abrir */
+}
 
-    .shine{
-      position:absolute;
-      inset:-30%;
-      background: radial-gradient(closest-side, rgba(255,255,255,.28), transparent 65%);
-      transform: translateX(-20%);
-      opacity:0;
-    }
+/* Brillito */
+.shine{
+  position:absolute;
+  inset:-30%;
+  background: radial-gradient(closest-side, rgba(255,255,255,.28), transparent 65%);
+  transform: translateX(-20%);
+  opacity:0;
+}
 
-    .btnArea.opening .flapTop{ opacity:1; animation: flapOpen 900ms ease forwards; }
-    .btnArea.opening .letter{ opacity:1; animation: letterUp 900ms cubic-bezier(.2,.9,.2,1) forwards; }
-    .btnArea.opening .shine{ opacity:1; animation: shineMove 900ms ease forwards; }
+/* Estado "opening" */
+.btnArea.opening .flapTop{ opacity:1; animation: flapOpen 900ms ease forwards; }
+.btnArea.opening .letter{ opacity:1; animation: letterUp 900ms cubic-bezier(.2,.9,.2,1) forwards; }
+.btnArea.opening .shine{ opacity:1; animation: shineMove 900ms ease forwards; }
 
-    @keyframes flapOpen{
-      0%   { transform: rotateX(0deg); }
-      70%  { transform: rotateX(-105deg); }
-      100% { transform: rotateX(-120deg); }
-    }
-    @keyframes letterUp{
-      0%   { transform: translateY(34%); }
-      70%  { transform: translateY(-10%); }
-      100% { transform: translateY(-16%); }
-    }
-    @keyframes shineMove{
-      0%   { transform: translateX(-18%); }
-      100% { transform: translateX(18%); }
-    }
+@keyframes flapOpen{
+  0%   { transform: rotateX(0deg); }
+  70%  { transform: rotateX(-105deg); }
+  100% { transform: rotateX(-120deg); }
+}
+@keyframes letterUp{
+  0%   { transform: translateY(34%); }
+  70%  { transform: translateY(-10%); }
+  100% { transform: translateY(-16%); }
+}
+@keyframes shineMove{
+  0%   { transform: translateX(-18%); }
+  100% { transform: translateX(18%); }
+}
 
-    @media (prefers-reduced-motion: reduce){
-      .btnArea.opening .flapTop,
-      .btnArea.opening .letter,
-      .btnArea.opening .shine{ animation:none; }
-      .flapTop,.letter,.shine{ opacity:0; }
-    }
+/* Respeta usuarios con reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .btnArea.opening .flapTop,
+  .btnArea.opening .letter,
+  .btnArea.opening .shine{ animation:none; }
+  .flapTop,.letter,.shine{ opacity:0; }
+}
   </style>
 </head>
 
 <body>
-  <div class="stage">
-    <div class="btnArea" id="openInvite" role="button" tabindex="0" aria-label="Abrir invitación">
-      <img class="envelopeImg" src="assets/sobre.jpg" alt="Sobre con sello de cera" />
+ <div class="stage">
+  <div class="btnArea" id="openInvite" role="button" tabindex="0" aria-label="Abrir invitación">
+    <img class="envelopeImg" src="assets/sobre.jpg" alt="Sobre con sello de cera" />
 
-      <div class="sealText" aria-hidden="true">
-        Gladys
-        <span class="amp">&amp;</span>
-        Arturo
-      </div>
+    <div class="sealText" aria-hidden="true">
+      Gladys
+      <span class="amp">&amp;</span>
+      Arturo
+    </div>
 
-      <div class="openFx" aria-hidden="true">
-        <div class="flapTop"></div>
-        <div class="letter"></div>
-        <div class="shine"></div>
-      </div>
+    <!-- Overlay animado (no cambia tu imagen) -->
+    <div class="openFx" aria-hidden="true">
+      <div class="flapTop"></div>
+      <div class="letter"></div>
+      <div class="shine"></div>
     </div>
   </div>
+</div>
 
-  <!-- Audio en la carta (para “gesto de usuario” real) -->
+ <script>
+async function openInvitation(){
+  const audio = document.getElementById("bgMusic");
+
+  // Intentamos reproducir AQUÍ (gesto de usuario seguro)
+  try{
+    audio.volume = 0.65;
+    await audio.play();
+    // Marcamos que ya está permitido reproducir en la siguiente página
+    localStorage.setItem("musicAllowed", "1");
+  }catch(e){
+    console.warn("No se pudo iniciar audio en la carta:", e);
+    localStorage.setItem("musicAllowed", "0");
+  }
+
+  // Vamos a la invitación
+  window.location.href = "invitacion.html";
+}
+
+const el = document.getElementById("openInvite");
+el.addEventListener("click", openInvitation);
+el.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") openInvitation();
+});
+</script>
   <audio id="bgMusic" preload="auto" loop>
-    <source src="audio/cancion.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-  (() => {
-    const TARGET_URL = "invitacion.html";
-    const OPEN_ANIM_MS = 950; // debe ser un poquito > 900ms (CSS)
-    const audio = document.getElementById("bgMusic");
-    const openEl = document.getElementById("openInvite");
-
-    let opening = false;
-
-    function goNext(){
-      window.location.href = TARGET_URL;
-    }
-
-    async function tryStartMusic(){
-      if (!audio) {
-        localStorage.setItem("musicAllowed", "0");
-        return;
-      }
-
-      try{
-        audio.volume = 0.65;
-        audio.currentTime = 0;
-        await audio.play();
-        localStorage.setItem("musicAllowed", "1");
-      }catch(err){
-        console.warn("No se pudo iniciar audio en la carta:", err);
-        localStorage.setItem("musicAllowed", "0");
-      }
-    }
-
-    async function openInvitation(){
-      if (opening) return;
-      opening = true;
-
-      // 1) Dispara animación visual
-      openEl.classList.add("opening");
-
-      // 2) Intenta música (mismo gesto del click)
-      await tryStartMusic();
-
-      // 3) Espera a que se vea la animación, luego navega
-      window.setTimeout(goNext, OPEN_ANIM_MS);
-    }
-
-    openEl.addEventListener("click", openInvitation);
-    openEl.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        openInvitation();
-      }
-    });
-
-    // Pre-carga (no reproduce) para que esté listo al click
-    // Nota: algunos navegadores ignoran load(); no pasa nada.
-    try { audio && audio.load(); } catch {}
-  })();
-  </script>
+  <source src="audio/cancion.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
