@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
- <title>Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!</title>
+  <title>Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!</title>
 
-<meta name="description" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
+  <meta name="description" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
 
-<!-- Open Graph (WhatsApp/Facebook) -->
-<meta property="og:title" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
-<meta property="og:description" content="Abre la invitación para ver todos los detalles." />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://argh888.github.io/Invit_boda_GyA/assets/sobre.jpg" />
-<meta property="og:url" content="https://argh888.github.io/Invit_boda_GyA/" />
+  <!-- Open Graph (WhatsApp/Facebook) -->
+  <meta property="og:title" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
+  <meta property="og:description" content="Abre la invitación para ver todos los detalles." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://argh888.github.io/Invit_boda_GyA/assets/sobre.jpg" />
+  <meta property="og:url" content="https://argh888.github.io/Invit_boda_GyA/" />
 
-<!-- Twitter/X -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
-<meta name="twitter:description" content="Abre la invitación para ver todos los detalles." />
-<meta name="twitter:image" content="https://argh888.github.io/Invit_boda_GyA/assets/sobre.jpg" />
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Quedas invitado a la boda de Gladys y Arturo, ¡no faltes!" />
+  <meta name="twitter:description" content="Abre la invitación para ver todos los detalles." />
+  <meta name="twitter:image" content="https://argh888.github.io/Invit_boda_GyA/assets/sobre.jpg" />
 
   <style>
     :root{
@@ -65,7 +65,7 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position:center;
+      object-position: 50% 50%; /* centrada */
       display:block;
     }
 
@@ -103,100 +103,18 @@
       outline: 4px solid rgba(124,92,255,.35);
       outline-offset: 6px;
     }
-    /* ===== Animación abrir sobre (overlay) ===== */
-.openFx{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  perspective: 1200px;
-}
 
-/* Solapa superior */
-.flapTop{
-  position:absolute;
-  left:8%;
-  right:8%;
-  top:8%;
-  height:48%;
-  transform-origin: 50% 0%;
-  transform: rotateX(0deg);
-  clip-path: polygon(0 0, 100% 0, 50% 72%);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.22), rgba(0,0,0,.10));
-  filter: drop-shadow(0 14px 18px rgba(0,0,0,.18));
-  opacity:0; /* aparece al abrir */
-}
-
-/* Carta que sale */
-.letter{
-  position:absolute;
-  left:10%;
-  right:10%;
-  bottom:10%;
-  height:64%;
-  border-radius:14px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.92), rgba(247,242,255,.88));
-  box-shadow: 0 20px 40px rgba(0,0,0,.18);
-  transform: translateY(34%);
-  opacity:0; /* aparece al abrir */
-}
-
-/* Brillito */
-.shine{
-  position:absolute;
-  inset:-30%;
-  background: radial-gradient(closest-side, rgba(255,255,255,.28), transparent 65%);
-  transform: translateX(-20%);
-  opacity:0;
-}
-
-/* Estado "opening" */
-.btnArea.opening .flapTop{ opacity:1; animation: flapOpen 900ms ease forwards; }
-.btnArea.opening .letter{ opacity:1; animation: letterUp 900ms cubic-bezier(.2,.9,.2,1) forwards; }
-.btnArea.opening .shine{ opacity:1; animation: shineMove 900ms ease forwards; }
-
-@keyframes flapOpen{
-  0%   { transform: rotateX(0deg); }
-  70%  { transform: rotateX(-105deg); }
-  100% { transform: rotateX(-120deg); }
-}
-@keyframes letterUp{
-  0%   { transform: translateY(34%); }
-  70%  { transform: translateY(-10%); }
-  100% { transform: translateY(-16%); }
-}
-@keyframes shineMove{
-  0%   { transform: translateX(-18%); }
-  100% { transform: translateX(18%); }
-}
-
-/* Respeta usuarios con reduce motion */
-@media (prefers-reduced-motion: reduce){
-  .btnArea.opening .flapTop,
-  .btnArea.opening .letter,
-  .btnArea.opening .shine{ animation:none; }
-  .flapTop,.letter,.shine{ opacity:0; }
-}
-    /* ===== Mobile tweaks (carta) ===== */
-@media (max-width: 480px){
-  .sealText{
-    left: 50%;
-    top: 38%;
-    font-size: clamp(30px, 10vw, 52px);
-    letter-spacing: .3px;
-    text-shadow:
-      0 2px 0 rgba(255,255,255,.10),
-      0 10px 18px rgba(0,0,0,.35);
-  }
-
-  /* Evita que se “corte” en pantallas muy altas (iPhone) */
-  .envelopeImg{
-    object-position: 50% 45%;
-  }
-}
+    @media (max-width: 480px){
+      .sealText{
+        left:50%;
+        top:38%;
+        font-size: clamp(30px, 10vw, 52px);
+        letter-spacing:.3px;
+      }
+    }
   </style>
 </head>
+  
 
 <body>
  <div class="stage">
