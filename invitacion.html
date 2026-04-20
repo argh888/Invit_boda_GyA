@@ -315,6 +315,56 @@
       .carousel{min-height:260px}
       .mapEmbed{height:360px}
     }
+    /* ===== Mobile tweaks (invitación) ===== */
+@media (max-width: 520px){
+  .container{ padding: 0 14px; }
+
+  /* Header: links en una sola fila scrolleable */
+  .navlinks{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 6px;
+    padding-bottom: 6px;
+  }
+  .navlinks a{
+    white-space: nowrap;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  /* Hero */
+  .hero{ padding: 18px 0 10px; }
+  h1{ font-size: 34px; }
+  .heroLeft{ padding: 18px; }
+  .subtitle{ font-size: 15px; }
+
+  /* Botones */
+  .btnRow .btn{ width: 100%; }
+
+  /* Carrusel */
+  .carousel{ min-height: 220px; border-radius: 16px; }
+
+  /* Countdown */
+  .countdownHero{ min-height: 380px; border-radius: 18px; }
+  .cdTitle{ font-size: 40px; }
+  .cdDate{ font-size: 24px; }
+  .cdCircles{ gap: 12px; }
+  .cdCircle{ width: 88px; height: 88px; }
+  .cdNum{ font-size: 28px; }
+  .cdCalendarTitle{ font-size: 22px; }
+  .cdButtons .btn{ width: 100%; }
+
+  /* Cards / grid */
+  .grid3{ grid-template-columns: 1fr; gap: 12px; }
+  .card{ padding: 14px; border-radius: 16px; }
+
+  /* Mapa */
+  .mapEmbed{ height: 320px; border-radius: 14px; }
+
+  /* Galería marquee */
+  .gimg{ width: 210px; height: 140px; border-radius: 14px; }
+}
   </style>
 </head>
 
