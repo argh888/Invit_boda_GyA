@@ -105,18 +105,31 @@
     </div>
   </div>
 
-  <script>
-    function openInvitation(){
-      localStorage.setItem("playMusic", "1");
-      window.location.href = "invitacion.html";
-    }
+ <script>
+async function openInvitation(){
+  const audio = document.getElementById("bgMusic");
 
-    const el = document.getElementById("openInvite");
-    el.addEventListener("click", openInvitation);
-    el.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") openInvitation();
-    });
-  </script>
+  // Intentamos reproducir AQUÍ (gesto de usuario seguro)
+  try{
+    audio.volume = 0.65;
+    await audio.play();
+    // Marcamos que ya está permitido reproducir en la siguiente página
+    localStorage.setItem("musicAllowed", "1");
+  }catch(e){
+    console.warn("No se pudo iniciar audio en la carta:", e);
+    localStorage.setItem("musicAllowed", "0");
+  }
+
+  // Vamos a la invitación
+  window.location.href = "invitacion.html";
+}
+
+const el = document.getElementById("openInvite");
+el.addEventListener("click", openInvitation);
+el.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") openInvitation();
+});
+</script>
   <audio id="bgMusic" preload="auto" loop>
   <source src="audio/cancion.mp3" type="audio/mpeg">
 </audio>
